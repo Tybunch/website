@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exclusive Chevy Deal</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: url('https://source.unsplash.com/featured/?chevrolet') no-repeat center center/cover;
+            color: white;
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            background: rgba(0, 0, 0, 0.6);
+            padding: 20px;
+            border-radius: 10px;
+        }
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        #countdown {
+            font-size: 2em;
+            margin: 20px 0;
+        }
+        .cta-button {
+            display: inline-block;
+            padding: 15px 25px;
+            font-size: 1.2em;
+            color: white;
+            background: red;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Exclusive 24-Hour Chevy Deal</h1>
+        <p>Don't miss out on this limited-time offer!</p>
+        <div id="countdown">24:00:00</div>
+        <a href="#" class="cta-button">Claim This Deal</a>
+    </div>
+
+    <script>
+        function startCountdown(duration) {
+            let timer = duration, hours, minutes, seconds;
+            setInterval(function () {
+                hours = Math.floor(timer / 3600);
+                minutes = Math.floor((timer % 3600) / 60);
+                seconds = timer % 60;
+                document.getElementById('countdown').textContent = 
+                    (hours < 10 ? "0" : "") + hours + ":" + 
+                    (minutes < 10 ? "0" : "") + minutes + ":" + 
+                    (seconds < 10 ? "0" : "") + seconds;
+                if (--timer < 0) {
+                    timer = 0;
+                }
+            }, 1000);
+        }
+        startCountdown(24 * 3600);
+    </script>
+</body>
+</html>
